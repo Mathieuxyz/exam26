@@ -24,7 +24,7 @@ export default async function EditPage(props: Props) {
 
   const updateArticleWithId = updateArticle.bind(null, id);
 
-  return (
+  return {(
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold text-neutral-900 md:text-3xl">
@@ -39,7 +39,7 @@ export default async function EditPage(props: Props) {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold text-neutral-900 md:text-3xl">
-          Édition de {article.title}
+          Édition de {article.article}
         </h1>
         <p className="mt-1 text-neutral-600">
           Modifiez les informations sur l'article
