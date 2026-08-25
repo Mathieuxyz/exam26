@@ -7,16 +7,15 @@ import { db } from "@/db";
 import { bookings } from "@/db/schema";
 
 function parseBookingForm(formData: FormData) {
-  const name = String(formData.get("name") ?? "").trim();
-  const phone = String(formData.get("phone") ?? "").trim();
-  const guests = Number(formData.get("guests"));
-  const time = String(formData.get("time") ?? "");
+  const article = String(formData.get("article") ?? "").trim();
+  const number = String(formData.get("number") ?? "").trim();
+  const peremption = Number(formData.get("peremption"));
 
-  if (!name || !phone || !time || !Number.isFinite(guests) || guests < 1) {
-    throw new Error("Champs de réservation invalides");
+  if (!article || !number || !peremption || !Number.isFinite(peremption) || peremption < 1) {
+    throw new Error("Invalid");
   }
 
-  return { name, phone, guests, time: new Date(time) };
+  return { article, number, peremption };
 }
 
 export async function getBookings() {

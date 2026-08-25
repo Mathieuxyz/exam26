@@ -6,13 +6,7 @@ export const dynamic = "force-dynamic";
 export default async function ArticlePage() {
   const bookings = await getBookings();
   
-  {
-  return (
-      <h1 className="text-2xl font-semibold text-neutral-900 md:text-3xl">
-          Erreur lors du chargement des articles
-        </h1>
-    );
-  /*if (!getBookings) {
+  if (!getBookings) {
     return (
       <h1 className="text-2xl font-semibold text-neutral-900 md:text-3xl">
           Erreur lors du chargement des articles
@@ -31,5 +25,5 @@ export default async function ArticlePage() {
       <BookingsTable bookings={bookings} />
     </div>
   );
-  }*/}
+  }
 }

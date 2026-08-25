@@ -8,10 +8,10 @@ export function Header() {
           Blog d'amateur de thés
         </Link>
         <nav aria-label="Navigation principale" className="flex gap-4 text-sm font-medium">
-          <Link href="/app/articles" className="text-neutral-600 hover:text-neutral-900">
+          <Link href="/articles" className="text-neutral-600 hover:text-neutral-900">
             Liste des articles
           </Link>
-          <Link href="/app/edit" className="text-neutral-600 hover:text-neutral-900">
+          <Link href="/edit" className="text-neutral-600 hover:text-neutral-900">
             Modifier un article
           </Link>
         </nav>
