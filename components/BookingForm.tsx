@@ -1,5 +1,4 @@
 import { FormField } from "@/components/FormField";
-import { toDateTimeLocalValue } from "@/lib/format";
 import type { Booking } from "@/db/schema";
 
 type BookingFormProps = {
@@ -12,40 +11,31 @@ export function BookingForm({ action, defaultValues, submitLabel }: BookingFormP
   return (
     <form action={action} className="flex flex-col gap-4">
       <FormField
-        label="Nom"
-        name="name"
+        label="Nom de l'article"
+        name="article"
         type="text"
         required
         autoComplete="name"
-        defaultValue={defaultValues?.name}
-        placeholder="Jean Dupont"
+        defaultValue={defaultValues?.article}
+        placeholder="Thé vert"
       />
       <FormField
-        label="Téléphone"
-        name="phone"
-        type="tel"
+        label="Numéro d'article"
+        name="number"
+        type="integer"
         required
-        autoComplete="tel"
-        defaultValue={defaultValues?.phone}
-        placeholder="0470 12 34 56"
+        autoComplete="name"
+        defaultValue={defaultValues?.number}
+        placeholder="345554642342543"
       />
       <FormField
-        label="Nombre de personnes"
-        name="guests"
-        type="number"
-        min={1}
+        label="Date de péremption"
+        name="peremption"
+        type="text"
         required
-        defaultValue={defaultValues?.guests}
-        placeholder="4"
-      />
-      <FormField
-        label="Heure de réservation"
-        name="time"
-        type="datetime-local"
-        required
-        defaultValue={
-          defaultValues ? toDateTimeLocalValue(new Date(defaultValues.time)) : undefined
-        }
+        autoComplete="name"
+        defaultValue={defaultValues?.peremption}
+        placeholder="01/04/2067"
       />
       <button
         type="submit"

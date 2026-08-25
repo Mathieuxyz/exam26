@@ -10,7 +10,7 @@ type BookingsTableProps = {
 export function BookingsTable({ bookings }: BookingsTableProps) {
   if (bookings.length === 0) {
     return (
-      <p className="text-neutral-600">Aucune réservation pour le moment.</p>
+      <p className="text-neutral-600">Aucun article d'enregistré pour le moment.</p>
     );
   }
 
@@ -39,20 +39,16 @@ export function BookingsTable({ bookings }: BookingsTableProps) {
         <tbody className="divide-y divide-neutral-200">
           {bookings.map((booking) => (
             <tr key={booking.id}>
-              <td className="px-4 py-3 text-neutral-900">{booking.name}</td>
-              <td className="px-4 py-3 text-neutral-600">{booking.phone}</td>
-              <td className="px-4 py-3 text-neutral-600">{booking.guests}</td>
-              <td className="px-4 py-3 text-neutral-600">
-                {formatBookingTime(new Date(booking.time))}
-              </td>
+              <td className="px-4 py-3 text-neutral-900">{booking.article}</td>
+              <td className="px-4 py-3 text-neutral-600">{booking.number}</td>
+              <td className="px-4 py-3 text-neutral-600">{booking.peremption}</td>
               <td className="px-4 py-3 text-right">
                 <Link
                   href={`/bookings/${booking.id}`}
                   className="font-medium text-neutral-900 underline underline-offset-2 hover:text-neutral-600"
                 >
                   Modifier
-                </Link>
-              </td>
+                </Link></td>
             </tr>
           ))}
         </tbody>

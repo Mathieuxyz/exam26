@@ -10,12 +10,16 @@ type Props = {
 
 export const dynamic = "force-dynamic";
 
-export default async function BookingPage(props: Props) {
+export default async function EditPage(props: Props) {
   const { id } = await props.params;
   const booking = await getBooking(id);
 
   if (!booking) {
-    notFound();
+    return (
+      <h1 className="text-2xl font-semibold text-neutral-900 md:text-3xl">
+          Erreur lors du chargement des articles
+        </h1>
+    );
   }
 
   const updateBookingWithId = updateBooking.bind(null, id);
@@ -27,7 +31,7 @@ export default async function BookingPage(props: Props) {
           Réservation de {booking.name}
         </h1>
         <p className="mt-1 text-neutral-600">
-          Modifiez les informations ou supprimez la réservation.
+          Modifiez les informations sur l'article
         </p>
       </div>
       <div className="rounded-lg border border-neutral-200 bg-white p-6">

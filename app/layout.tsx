@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Le Bon Repas — Réservations",
-  description: "Réservez votre table au restaurant Le Bon Repas.",
+  title: "Epicerie",
+  description: "Liste d'articles disponibles en magasin",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

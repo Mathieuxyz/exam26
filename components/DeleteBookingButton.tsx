@@ -13,7 +13,7 @@ export function DeleteBookingButton({ id }: DeleteBookingButtonProps) {
         type="submit"
         className="rounded-md border border-red-300 px-4 py-2 font-medium text-red-700 transition-colors hover:bg-red-50"
       >
-        Supprimer la réservation
+        Supprimer l'article'
       </button>
     </form>
   );
