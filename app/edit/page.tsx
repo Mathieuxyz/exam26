@@ -28,11 +28,12 @@ export default async function EditPage(props: Props) {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold text-neutral-900 md:text-3xl">
+          Édition de {article.title}
         </h1>
     );
   }
 
-  const updateBookingWithId = updateBooking.bind(null, id);
+  const updateArticleWithId = updateArticle.bind(null, id);
 
   return (
     <div className="flex flex-col gap-6">
