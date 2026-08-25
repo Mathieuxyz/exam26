@@ -1,14 +1,13 @@
 import Link from "next/link";
 
-import { formatBookingTime } from "@/lib/format";
 import type { Booking } from "@/db/schema";
 
-type BookingsTableProps = {
-  bookings: Booking[];
+type ArticlesTableProps = {
+  articles: Article[];
 };
 
-export function BookingsTable({ bookings }: BookingsTableProps) {
-  if (bookings.length === 0) {
+export function ArticlesTable({ articles }: ArticlesTableProps) {
+  if (articles.length === 0) {
     return (
       <p className="text-neutral-600">Aucun article d'enregistré pour le moment.</p>
     );
@@ -37,14 +36,14 @@ export function BookingsTable({ bookings }: BookingsTableProps) {
           </tr>
         </thead>
         <tbody className="divide-y divide-neutral-200">
-          {bookings.map((booking) => (
-            <tr key={booking.id}>
-              <td className="px-4 py-3 text-neutral-900">{booking.article}</td>
-              <td className="px-4 py-3 text-neutral-600">{booking.number}</td>
-              <td className="px-4 py-3 text-neutral-600">{booking.peremption}</td>
+          {articles.map((article) => (
+            <tr key={article.id}>
+              <td className="px-4 py-3 text-neutral-900">{article.article}</td>
+              <td className="px-4 py-3 text-neutral-600">{article.number}</td>
+              <td className="px-4 py-3 text-neutral-600">{article.peremption}</td>
               <td className="px-4 py-3 text-right">
                 <Link
-                  href={`/bookings/${booking.id}`}
+                  href={`/articles/${article.id}`}
                   className="font-medium text-neutral-900 underline underline-offset-2 hover:text-neutral-600"
                 >
                   Modifier

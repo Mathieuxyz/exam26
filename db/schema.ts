@@ -1,10 +1,10 @@
 import { integer, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
-export const bookings = pgTable("bookings", {
+export const articles = pgTable("articles", {
   article: uuid().defaultRandom().primaryKey(),
   number: text().notNull(),
   peremption: integer().notNull(),
 });
 
-export type Booking = typeof bookings.$inferSelect;
-export type NewBooking = typeof bookings.$inferInsert;
+export type Article = typeof articles.$inferSelect;
+export type NewArticle = typeof articles.$inferInsert;

@@ -4,9 +4,9 @@ import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 
 import { db } from "@/db";
-import { bookings } from "@/db/schema";
+import { articles } from "@/db/schema";
 
-function parseBookingForm(formData: FormData) {
+function parseArticleForm(formData: FormData) {
   const article = String(formData.get("article") ?? "").trim();
   const number = String(formData.get("number") ?? "").trim();
   const peremption = Number(formData.get("peremption"));
@@ -18,31 +18,31 @@ function parseBookingForm(formData: FormData) {
   return { article, number, peremption };
 }
 
-export async function getBookings() {
-  return db.query.bookings.findMany({
-    orderBy: (b, { asc }) => asc(b.time),
+export async function getArticles() {
+  return db.query.articles.findMany({
+    orderBy: (a, { asc }) => asc(a.article),
   });
 }
 
-export async function getBooking(id: string) {
-  return db.query.bookings.findFirst({
-    where: eq(bookings.id, id),
+export async function getArticle(id: string) {
+  return db.query.articles.findFirst({
+    where: eq(articles.id, id),
   });
 }
 
-export async function createBooking(formData: FormData) {
-  const data = parseBookingForm(formData);
-  await db.insert(bookings).values(data);
-  redirect("/bookings");
+export async function createArticle(formData: FormData) {
+  const data = parseArticleForm(formData);
+  await db.insert(articles).values(data);
+  redirect("/articles");
 }
 
-export async function updateBooking(id: string, formData: FormData) {
-  const data = parseBookingForm(formData);
-  await db.update(bookings).set(data).where(eq(bookings.id, id));
-  redirect("/bookings");
+export async function updateArticle(id: string, formData: FormData) {
+  const data = parseArticleForm(formData);
+  await db.update(articles).set(data).where(eq(articles.id, id));
+  redirect("/articles");
 }
 
-export async function deleteBooking(id: string) {
-  await db.delete(bookings).where(eq(bookings.id, id));
-  redirect("/bookings");
+export async function deleteArticle(id: string) {
+  await db.delete(articles).where(eq(articles.id, id));
+  redirect("/articles");
 }

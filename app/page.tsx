@@ -1,5 +1,5 @@
-import { BookingForm } from "@/components/BookingForm";
-import { createBooking } from "@/lib/bookings";
+import { ArticleForm } from "@/components/ArticleForm";
+import { createArticle } from "@/lib/articles";
 
 export default function HomePage() {
   return (
@@ -9,7 +9,7 @@ export default function HomePage() {
           Ajouter un article à l'inventaire :
         </h1>
       <div className="rounded-lg border border-neutral-200 bg-white p-6">
-        <BookingForm action={createBooking} submitLabel="Ajouter" />
+        <ArticleForm action={createArticle} submitLabel="Ajouter" />
       </div>
       </div>
     </div>

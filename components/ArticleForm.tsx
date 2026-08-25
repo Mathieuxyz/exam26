@@ -1,13 +1,13 @@
 import { FormField } from "@/components/FormField";
-import type { Booking } from "@/db/schema";
+import type { Article } from "@/db/schema";
 
-type BookingFormProps = {
+type ArticleFormProps = {
   action: (formData: FormData) => void;
-  defaultValues?: Booking;
+  defaultValues?: Article;
   submitLabel: string;
 };
 
-export function BookingForm({ action, defaultValues, submitLabel }: BookingFormProps) {
+export function ArticleForm({ action, defaultValues, submitLabel }: ArticleFormProps) {
   return (
     <form action={action} className="flex flex-col gap-4">
       <FormField
